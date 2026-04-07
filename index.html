@@ -1190,7 +1190,19 @@ Settings⚙️ > Connections > Mobile Networks > Access Point Names > Tap ""JAWA
     selector.addEventListener('change', e => {
       const v = e.target.value;
       display.innerHTML = texts[v] || `<h1>اختر خياراً من القائمة أعلى اليمين</h1>
-                                       <p>ــــــــــــــــــ</p>`;
+                                       
+    <p>
+      <span class="small-text">يرجى التحقق من نوع الشريحة والمتطلبات قبل ارسال الرسالة للعميل</span>
+    </p>
+  </div>
+</main>
+
+<style>
+.small-text {
+  font-size: 30px; /* غيّر الحجم حسب رغبتك */
+}
+</style>
+`;
     });
   </script>
 
