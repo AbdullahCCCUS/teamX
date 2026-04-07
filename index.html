@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TS</title>
+  <style>
+    :root{
+      --gap:16px;
+      --bg:#778BA4;
+      --card:#ffffff;
+    }
+    html, body {
+      height:100%;
+      margin:0;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: #111;
+      direction: rtl;
+      text-align: right;
+      unicode-bidi: embed;
+    }
+
+    .top-right {
+      position: fixed;
+      top: var(--gap);
+      right: var(--gap);
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    select {
+      appearance: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background: #4F6271;
+color: #ffffff;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(16,24,40,0.06);
+      min-width: 180px;
+    }
+
+    .hint {
+      font-size: 15px;
+      color: #323C45;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    main.content{
+      min-height:100vh;
+      display:flex;
+      flex-direction: column; /* عمود */
+      align-items:center;     /* مركز أفقياً */
+      justify-content:flex-start; /* محتوى من الأعلى */
+      padding:40px;
+      box-sizing:border-box;
+    }
+
+    .text-box{
+      width:100%;
+      max-width:1100px;
+      background:linear-gradient(180deg, rgba(179, 191, 203), rgba(179, 191, 203));   
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.06);
+      line-height:1.7;
+      font-size:18px;
+      color:#0f172a;
+      text-align: right; /* RTL للنصوص */
+      margin-bottom:20px;
+    }
+
+    footer.signature {
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      color: #000000;
+      margin-top: auto;  /* يبقي التوقيع في الأسفل */
+      padding: 10px 0;
+      border-top: 1px solid #d1d5db;
+      font-size: 16px
+    }
+
+    @media (max-width:420px){
+      .top-right{ gap:6px; right:10px; top:10px }
+      select{ min-width:120px; padding:8px 10px }
+      .hint{ font-size:14px }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-right" role="navigation" aria-label="قائمة الخيارات">
+    <select id="selector" aria-live="polite">
+      <option value="" selected>-- اختر خياراً --</option>
+      <option value="opt1">Slow internet بطئ في الانترنت </option>
+#      <option value="opt2">Can't Make Local Calls اجراء المكالمات</option>
+#     <option value="opt3">تغطية Coverage</option>
+ #     <option value="opt4">Data-Can't use Internet الانترنت لا يعمل </option>
+#<option value="opt5">Handling Branch Complaint</option>
+< option value="opt6">roaming</option>
+< option value="opt7">Can't Receive Calls</option>
+< option value="opt8">Esim Qr code issue</option>
+< option value="opt9">SMS issue </option>
+< option value="opt10">VAS </option>
+      < option value="opt11">can’t make international calls </option>
+      < option value="opt12">App Settings </option>
+< option value="opt13">Unstable connection </option>
+
+
+    </select>
+    <span class="hint">..</span>
+  </div>
+
+  <main class="content" id="contentArea">
+    <div class="text-box" id="displayArea">
+      <h1>اختر خياراً من القائمة أعلى اليمين</h1>
+      <p>ــــــــــــــــــــــــــــــــــــ</p>
+    </div>
+
+    <footer class="signature">
+      ABDULLAH.61992 
+    </footer>
+  </main>
+
+  <script>
+    const texts = {
+      opt1: `<h1>Slow internet</h1><p>
+ 
+
+ولا عليك امر ياليت تطبق الخطوات التالية بالترتيب وبإذن الله ستحل الاشكالية وابلغنا في حال كانت الاشكالية مستمرة  <br>
+
+ 
+
+*اولاً اعادة ضبط الشبكة بالخطوات التالية حسب نوع جهازك :  <br>
+من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى: <br>
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة <br>
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين إعدادات الشبكة <br>
+ <br>
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة <br>
+ <br>
+<br>
+ <br>
+* ثانياً اعادة ضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي: <br>
+لاجهزة الايفون: 
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN). <br>
+ <br>
+لاجهزة الاندرويد: <br>
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق. <br>
+ وزودنا  بصورة من اعدادات نقاط الوصول بعد ضبطها .  <br>
+<br>
+ <br>
+<br>
+---------------------------------------------------------------------------- <br>
+<br>
+ <br>
+<br>
+ولا يهمك الان نحتاج بعض المعلومات لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك  <br>
+
+ياليت تنسخ الرسالة وتجيب على الاسئلة التالية وتعيد ارسالها لنا  <br>
+
+ <br>
+<br>
+ 
+ 
+* هل تواجه مشكلة البيانات مع جميع التطبيقات/المواقع أم مع موقع محدد؟ <br>
+ 
+ 
+* منذ متى بدأت الاشكالية في الحدوث معك؟ <br>
+ 
+ 
+* هل تواجه الاشكالية في مكان محدد ام في كل مكان ؟ <br>
+ 
+ 
+* هل الإشكالية في استخدام الانترنت والبيانات فقط ام تواجه إشكالية في المكالمات؟ <br>
+ 
+ 
+* هل المشكلة تتعلق بـ شبكة الجيل الرابع والخامس او الجيل الخامس فقط ؟ <br>
+ <br>
+<br>
+---------------------------------------------------------------------------- <br>
+<br>
+<br>
+ 
+*ياليت ولا عليك امر تجرب الشريحة في جهاز اخر وتبلغنا في حال تمت تجربة الشريحة او لا وهل تعمل البيانات بشكل سليم في الجهاز الاخر ام لا  <br>
+ 
+*وزودنا بصورة شاشة من لاختبارين سرعة في مكانان مختلفان من خلال الموقع التالي (http://www.speedtest.net) <br>
+
+* وزودنا برقم للتواصل لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page3.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt2: `<h1>Can't Make Local Calls</h1><p> 
+
+ولا عليك امر ياليت تطبق الخطوات التالية بالترتيب وبإذن الله ستحل الاشكالية وابلغنا في حال كانت الاشكالية مستمرة <br> 
+
+<br> 
+
+*اولاً اعادة ضبط الشبكة بالخطوات التالية حسب نوع جهازك : <br> 
+من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى: <br> 
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة <br> 
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين <br> إعدادات الشبكة 
+<br> 
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة <br> 
+<br> 
+<br> 
+* ثانياً اعادة ضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي: <br> 
+لاجهزة الايفون: <br> 
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN). <br> 
+<br> 
+لاجهزة الاندرويد: <br> 
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق. <br> 
+ وزودنا  بصورة من اعدادات نقاط الوصول بعد ضبطها . <br> 
+
+<br> 
+
+* وزودنا بصورة من حالة الابراج على جهازك <br> 
+
+<br> 
+
+<br> 
+
+---------------------------------------------------------------------------- <br> <br> 
+
+<br> 
+
+ولا يهمك الان نحتاج بعض المعلومات لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك <br> 
+
+ياليت تنسخ الرسالة وتجيب على الاسئلة التالية وتعيد ارسالها لنا <br> 
+
+ 
+
+* هل الإشكالية فقط في المكالمات ام تواجه إشكالية في استخدام الانترنت والبيانات ؟ <br> 
+<br> 
+* من متى تواجه الإشكالية ؟ <br> 
+<br> 
+* هل تتواجد داخل المملكة العربية السعودية وهل تواجهك الاشكالية في مكان محدد ام في كل مكان ؟ <br> 
+<br> 
+* في حال كنت تواجه الاشكالية في المكالمات والبيانات وكانت الشريحة عادية ياليت تتحقق من حالة الشريحة هل فيها أي كسر او خدوش او ثنيات؟ <br> 
+<br> 
+* هل الإشكالية تواجهك عند محاولة الاتصال بجميع الأرقام والمشغلين ام فقط تواجهك عند الاتصال على رقم محدد او مشغل محدد ؟ 
+<br>
+<br>  
+
+* فضلاً اتصل على الرقم 900 وابلغني هل تستطيع الاستماع الى الرد الآلي ام لا؟ <br> 
+<br> 
+* هل تستطيع استقبال المكالمات والرسائل النصية؟ <br> 
+<br> 
+* في حال كانت الشريحة عادية ياليت تجرب الشريحة في جهاز اخر وابلغنا في حال كانت الاشكالية مستمرة ام لا ؟<br> 
+<br> 
+* ولا عليك امر ياليت تزودني بثلاث عينات حديثة لأرقام لم تستطع الاتصال بها (الرقم، التاريخ، الوقت) <br> 
+<br>  
+*ورقم للتواصل لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك: <br> 
+
+<br> <br> <br> <br>  ------------------------------------------------------------- <br> <br> 
+
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page4.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt3: `<h1>تغطية Coverage</h1><p>* 
+
+ 
+
+ 
+
+ 
+
+ولا عليك امر ياليت تطبق الخطوات التالية بالترتيب وبإذن الله ستحل الاشكالية وابلغنا في حال كانت الاشكالية مستمرة <br> 
+
+<br> 
+
+*اولاً اعادة ضبط الشبكة بالخطوات التالية حسب نوع جهازك : <br> 
+من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى: <br> 
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة <br> 
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين <br> إعدادات الشبكة 
+<br> 
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة <br> 
+<br> 
+<br> 
+* ثانياً اعادة ضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي: <br> 
+لاجهزة الايفون: <br> 
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN). <br> <br> 
+لاجهزة الاندرويد: <br>  
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق. <br> <br> 
+ وزودنا  بصورة من اعدادات نقاط الوصول بعد ضبطها . <br> <br> 
+
+* وزودنا بصورة من حالة الابراج على جهازك <br> <br>  ---------------------------------------------------------------------------- <br> <br> 
+
+<br> 
+
+ولا يهمك الان نحتاج بعض المعلومات لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك <br> 
+
+ياليت تنسخ الرسالة وتجيب على الاسئلة التالية وتعيد ارسالها لنا <br> 
+
+* من متى تواجهك هذه الإشكالية ؟ <br> 
+
+<br> 
+
+* هل الإشكالية في الـ 4G أو في الـ 5G ؟ <br> <br> 
+* هل تواجهك الاشكالية في خدمات الانترنت والمكالمات ؟ <br> <br> 
+* هل أنت داخل السعودية ؟ وهل الإشكالية تواجهك في مكان واحد أو كل مكان؟ <br> <br> 
+* في حال واجهتك اشكالية في المكالمات ايضاً ياليت تتأكد من حالة الشريحة وهل يوجد عليها خدوش او ثنيات؟ (في حال كانت الشريحة عادية) <br> <br> 
+
+* زودنا ب3 عيّنات لمحاولتك لإجراء مكالمة ولم تنجح معك ، يكون موضّح فيها الرقم والتاريخ والوقت: <br> <br> 
+* هل تواجهك إشكالية في إستقبال المكالمات أو الرسائل النصية ؟ <br> <br> 
+* نحتاج تتأكد من تغطية الشبكة في المنطقة اللي انت فيها من خلال الرابط التالي: (http://www.stc.com.sa/wps/wcm/connect/arabic/helpAndSupport/storelocator) و بعدها زودنا بصورة منها  <br> <br> 
+* زودنا بإحداثيات موقعك من خلال تطبيق google map <br> <br> 
+* هل الإشكالية تواجهك داخل المنزل فقط ؟ أم حتى في خارج المنزل ؟ <br> <br> 
+ * من فضلك قم بإختبار لسرعة النت من خلال هذا الرابط (http://www.speedtest.net) وزودنا بصورة شاشة لو تكرمت <br> <br> 
+* (إذا كانت شريحة عادية) من فضلك جرب الشريحة في جهازين آخرين وزودنا بصورة شاشة من إختبار سرعة النت من خلال الرابط اللي تم تزويدك فيه مؤخرا <br> <br> 
+* فضلا زودنا برقم للتواصل لرفع طلبك للفريق المختص <br> <br> <br> <br> 
+
+---------------------------------------------------------------------------------------------------------<br> <br> 
+ 
+
+لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page8.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>.
+</p>`,
+
+      opt4: `<h1>Data-Can't use Internet</h1><p> 
+
+ولا عليك امر ياليت تطبق الخطوات التالية بالترتيب وبإذن الله ستحل الاشكالية وابلغنا في حال كانت الاشكالية مستمرة <br> 
+
+<br> 
+
+*اولاً اعادة ضبط الشبكة بالخطوات التالية حسب نوع جهازك : <br> 
+من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى: <br> 
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة <br> 
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين <br> إعدادات الشبكة 
+<br> 
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة <br> 
+<br> 
+<br> 
+* ثانياً اعادة ضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي: <br> 
+لاجهزة الايفون: <br> 
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN). <br> <br> 
+لاجهزة الاندرويد: <br>  
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق. <br> <br> 
+ وزودنا  بصورة من اعدادات نقاط الوصول بعد ضبطها . <br> <br> 
+
+* وزودنا بصورة من حالة الابراج على جهازك <br> <br>  ---------------------------------------------------------------------------- <br> <br> 
+
+<br> 
+
+ولا يهمك الان نحتاج بعض المعلومات لرفع طلبك للفريق المختص لحل الاشكالية اللي تواجهك <br> 
+
+ياليت تنسخ الرسالة وتجيب على الاسئلة التالية وتعيد ارسالها لنا <br> 
+
+هل الاشكالية في مكان واحد ام في كل مكان ؟<br> <br>  
+
+من متى تواجه الإشكالية ؟<br> <br> 
+
+هل الإشكالية في استخدام الانترنت والبيانات فقط ام تواجه إشكالية في اجراء المكالمات ؟<br> <br> 
+
+ هل تتواجد داخل المملكة العربية السعودية ؟<br> <br> 
+
+في حال واجهتك اشكالية في المكالمات ايضاً وكانت الشريحة عادية ياليت تتأكد من حالة الشريحة وهل يوجد عليها خدوش او ثنيات؟<br> <br> 
+
+ياليت تشغل وضع الطيران لعدة دقائق وترجع تطفيه و ابلغني اذا انحلت الإشكالية او لا؟ <br> <br>  
+
+هل تستطيع استقبال المكالمات والرسائل النصية؟<br> <br> 
+
+في حال كانت الشريحة عادية جربها على جهاز اخر وهل الاشكالية حلت على الجهاز الاخر ام لا ؟ <br> <br> 
+* فضلا زودنا برقم للتواصل لرفع طلبك للفريق المختص <br> <br> 
+ 
+ <br> <br>  ---------------------------------------------------------------------------- <br> <br> 
+
+ 
+- لإنشاء تذكرة انتقل الى 
+<a href="https://abdullahcccus.github.io/TKTs/page2.html" target="_blank" style="color:#0b69ff; text-decoration:underline;">هنا</a>
+</p>`,
+
+      opt5: `<h1>Handling Branch Complaint</h1><p>Handling Branch Complaint
+
+
+
+
+جمع المتطلبات التالية من العميل ورفع الطلب الى صف L2 <br><br>
+Complaint>Staff Complaint> Retail Agent <br><br>
+
+فضلا زودنا بالمتطلبات التالية :<br><br>
+
+-الخدمة المطلوبة من الفرع:<br>
+-الوصف الكامل للشكوى:<br>
+-اسم الفرع:<br>
+-عنوان الفرع والمدينة والحي: <br>
+-تاريخ/وقت الزيارة: <br>
+-رقم للتواصل حتى نتمكن من رفع طلبك للفريق المختص لحل الاشكالية :<br><br>
+
+
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br>
+
+
+Collect the following requirements from the customer and escalate the request to the L2 queue:<br>
+Complaint > Staff Complaint > Retail Agent<br><br>
+
+Please provide us with the following details:<br><br>
+
+* The service requested from the branch:<br>
+* A full description of the complaint:<br>
+* Branch name:<br>
+* Branch address, city, and neighborhood:<br>
+* Date/time of the visit:<br>
+* A contact number so we can submit your request to the specialized team to resolve the issue:<br>
+
+</p>`,
+
+ opt6: `<h1>roaming</h1><p>roaming
+
+
+
+- Scenario 1 App doesn't work on a preferred network<br><br>
+
+* فضلا زودني بأسم الدوله الي انت فيها حاليا ؟<br>
+
+* Please provide me with the name of the country you are currently in.<br><br>
+
+* فضلا قم بالاتصال على احدى الشبكات المدعومة<br>
+
+* Please connect to one of the supported networks.<br><br>
+
+* فضلا ياليت تقوم بإغلاق الواي فاي و تفعل بيانات شريحه جوي على الشبكه المدعومة<br>
+
+* Please turn off Wi-Fi and enable Jawwy mobile data on the supported network.<br><br>
+
+* فضلا تأكد من  تفعيل التجوال من خلال اعدادات جهازك :<br>
+
+* Please make sure that roaming is enabled in your device settings:<br><br>
+
+* لجهاز الأيفون : الإعدادات > خلوي (Cellular) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For iPhone: Settings > Cellular > Data Roaming, then enable the option.<br><br>
+
+* لجهاز الأندرويد : الإعدادات > الاتصالات (Connections) > شبكات الهاتف المحمول (Mobile Networks) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For Android: Settings > Connections > Mobile Networks > Data Roaming, then enable the option.<br><br>
+
+* فضلا زودني بصوره شاشه من حالة الأبراج وأيضا زودني بأسم الشبكه الي شابك عليها<br>
+
+* Please provide me with a screenshot of the signal bars and the name of the network you are connected to.<br><br><br>
+
+
+
+
+
+
+Complaint > Jawwy App >App issue while roaming<br><br>
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br>
+
+
+Scenario 2 - App doesn't work on a non-preferred network <br><br><br>
+
+
+* فضلا زودني بأسم الدوله الي انت فيها حاليا ؟<br>
+
+* Please provide me with the name of the country you are currently in.<br><br>
+
+* فضلا قم بالاتصال على احدى الشبكات المدعومة<br>
+
+* Please connect to one of the supported networks.<br><br>
+
+* فضلا زودني بصوره شاشه من الخطأ الي يظهر لك عند محاولة الدخول الى التطبيق<br>
+
+* Please provide me with a screenshot of the error that appears when you try to access the app.<br><br>
+
+* فضلا ياليت تقوم بإغلاق الواي فاي و تفعل بيانات شريحه جوي على الشبكه المدعومة<br>
+
+* Please turn off Wi-Fi and enable Jawwy mobile data on the supported network.<br><br>
+
+* فضلا تأكد من تفعيل التجوال من خلال اعدادات جهازك :<br>
+
+* Please ensure that roaming is enabled in your device settings:<br><br>
+
+* لجهاز الأيفون : الإعدادات > خلوي (Cellular) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For iPhone: Settings > Cellular > Data Roaming, then enable the option.<br><br>
+
+* لجهاز الأندرويد : الإعدادات > الاتصالات (Connections) > شبكات الهاتف المحمول (Mobile Networks) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For Android: Settings > Connections > Mobile Networks > Data Roaming, then enable the option.<br><br>
+
+* فضلا زودني بصوره شاشه من حالة الأبراج وأيضا زودني بأسم الشبكه الي شابك عليها<br>
+
+* Please provide me with a screenshot of the signal bars and the name of the network you are connected to.<br><br><br>
+ 
+
+Complaint > Jawwy App >App issue while roaming<br><br>
+
+ـــــــــــــــــــــــــــــــــــــــــــــــــ<br><br><br>
+
+ -Scenario 3 Can't make/receive calls<br><br><br>
+* فضلا زودني بأسم الدوله الي انت فيها حاليا ؟<br>
+
+* Please provide me with the name of the country you are currently in.<br><br>
+
+* فضلا قم بالاتصال على احدى الشبكات المدعومة<br>
+
+* Please connect to one of the supported networks.<br><br>
+
+* فضلا زودني بصوره شاشه من حالة الأبراج وأيضا زودني بأسم الشبكه الي شابك عليها<br>
+
+* Please provide me with a screenshot of the signal bars and the name of the network you are connected to.<br><br>
+
+* فضلا تشبك على شبكه مدعومه اخرى وتجرب هل الاشكاليه مستمره معك ام لا ؟<br>
+
+* Please connect to another supported network and check whether the issue persists.<br><br>
+
+* فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+
+* Please try the SIM card in another device.<br><br>
+
+* ولا عليك امر ياليت تزودني بثلاث عينات حديثة لأرقام لم تستطع الاتصال بها (الرقم، التاريخ، الوقت)<br>
+
+* Please provide me with three recent samples of numbers you were unable to call (number, date, and time).<br><br>
+
+* لو تكرمت، أحتاج ثلاثة عينات حديثة لأرقام حاولت الاتصال بك (الرقم، التاريخ، الوقت)<br>
+
+* If you don’t mind, I need three recent samples of numbers that tried to call you (number, date, and time).<br><br><br>
+
+ Complaint > Roaming > Incoming Call Issues > Can not receive calls roaming<br><br>
+
+
+ Complaint > Network > Voice: Outgoing call issues > Calls issue while roaming<br><br>
+ـــــــــــــــــــــــــــــــــــــــــ<br><br><br>
+
+
+Scenario 4 - Can't use data<br><br><br>
+* فضلا زودني بأسم الدوله الي انت فيها حاليا ؟<br>
+
+* Please provide me with the name of the country you are currently in.<br><br>
+
+* فضلا قم بالاتصال على احدى الشبكات المدعومة<br>
+
+* Please connect to one of the supported networks.<br><br>
+
+* فضلا تأكد من تفعيل التجوال من خلال اعدادات جهازك :<br>
+
+* Please ensure that roaming is enabled in your device settings:<br><br>
+
+* لجهاز الأيفون : الإعدادات > خلوي (Cellular) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For iPhone: Settings > Cellular > Data Roaming, then enable the option.<br><br>
+
+* لجهاز الأندرويد : الإعدادات > الاتصالات (Connections) > شبكات الهاتف المحمول (Mobile Networks) > تجوال البيانات (Data Roaming) ثم تفعيل الخيار<br>
+
+* For Android: Settings > Connections > Mobile Networks > Data Roaming, then enable the option.<br><br>
+
+* فضلا تشبك على شبكه مدعومه اخرى وتجرب هل الاشكاليه مستمره معك ام لا ؟<br>
+
+* Please connect to another supported network and check whether the issue persists.<br><br>
+
+* في حال كان العميل لديه رصيد استخدام كافي : فضلا ياليت تشبك على اي شبكه غير مدعومه<br>
+
+* If you have sufficient usage balance, please try connecting to any unsupported network.<br><br>
+
+* فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+
+* Please try the SIM card in another device.<br><br>
+
+* فضلا زودني بصوره شاشه من حالة الأبراج وأيضا زودني بأسم الشبكه الي شابك عليها<br>
+
+* Please provide me with a screenshot of the signal bars along with the name of the network you are connected to.<br><br>
+ 
+
+ Complaint > Roaming > Data: Browsing issue > Data issue while roaming<br>
+
+ـــــــــــــــــــــــــــــــــــــــ<br><br><br>
+
+Scenario 5 - Can't send SMS<br><br><br>
+فضلا زودني باسم الدولة التي أنت فيها حاليًا؟<br>
+Please provide me with the name of the country you are currently in.<br><br>
+
+فضلًا، هل هذه هي المرة الأولى التي تواجه فيها هذه المشكلة أم أنها تكررت سابقًا؟<br>
+Please let me know if this is the first time you face this issue or if it has happened before.<br><br>
+
+فضلًا، هل تواجه الإشكالية مع جميع الأرقام أم رقم محدد؟ وهل المشكلة مع جميع المشغّلين أم مشغّل واحد فقط؟<br>
+Please confirm whether the issue occurs with all numbers or a specific number, and whether it happens with all operators or just one.<br><br>
+
+فضلًا، تأكد لي هل توصلك أي رسالة من جوي؟<br>
+Please confirm if you are receiving any messages from Jawwy.<br><br>
+
+في حال كان جهاز العميل أندرويد: فضلا، هل يمكنك التحقق من إعدادات الرسائل والتأكد من أن رقم مركز الرسائل هو ‎+966505031999‎؟<br>
+If your device is Android, please check the messaging settings and make sure the message center number is +966505031999.<br><br>
+
+فضلًا، زودني بصورة شاشة للخطأ الذي يظهر لك عند محاولة إرسال رسالة نصية.<br>
+Please provide me with a screenshot of the error that appears when you try to send an SMS.<br><br>
+
+فضلًا، تأكّد من إدخال رمز الدولة بشكل صحيح، حتى لو كان الرقم سعوديًا.<br>
+Please make sure you are entering the correct country code, even if the number is Saudi.<br><br>
+
+فقط لو كان العميل لديه رصيد استخدام كافٍ أو إضافة تجوال: هل بإمكانك إجراء المكالمات واستخدام الإنترنت؟<br>
+Only if you have sufficient usage balance or roaming add-on: can you make calls and use the internet?<br><br>
+
+فضلًا، قم بتفعيل وضع الطيران ثم إيقافه للتأكد.<br>
+Please enable airplane mode and then turn it off again to check.<br><br>
+
+فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+Please try the SIM card in another device.<br><br>
+
+فضلًا، زودنا بثلاث عينات حديثة لرسائل قمت بإرسالها ولم تنجح (التاريخ، الوقت، الرقم الذي حاولت إرسال الرسالة له).<br>
+Please provide three recent samples of messages you attempted to send that failed (date, time, and the number you tried to send to).<br><br><br>
+
+
+ Complaint >Network > SMS: SMS issues > Cannot send SMS-Addon/PayGo<br><br><br>
+
+ــــــــــــــــــــ<br><br><br>
+
+Scenario 6 - Can't receive SMS<br><br><br>
+
+فضلًا، هل هذه هي المرة الأولى التي تواجه فيها هذه المشكلة أم أنها تكررت سابقًا؟<br>
+Please let me know if this is the first time you are facing this issue or if it has occurred before.<br><br>
+
+فضلًا، هل تواجه الإشكالية مع جميع الأرقام أم رقم محدد؟<br>
+Are you experiencing the issue with all numbers or just a specific number?<br><br>
+
+في حال كانت من البنك: فضلا ياليت تتأكد من تحديث بياناتك لدى البنك<br>
+If this is from the bank: please make sure your information is updated with the bank.<br><br>
+
+فضلًا، تأكد لي هل توصلك أي رسالة من جوي؟<br>
+Please confirm whether you are receiving any messages from Jawwy.<br><br>
+
+في حال كان جهاز العميل أندرويد: فضلا، هل يمكنك التحقق من إعدادات الرسائل والتأكد من أن رقم مركز الرسائل هو +966505031999؟<br>
+If your device is Android: please check the message settings and ensure the message center number is +966505031999.<br><br>
+
+ياليت تتأكد من الشخص الذي يحاول أن يرسل لك رسالة أن يستخدم رمز المملكة بشكل صحيح قبل الإرسال: +966<br>
+Please make sure the person trying to send you a message uses the correct Saudi country code before sending: +966<br><br>
+
+فقط لو كان العميل لديه رصيد استخدام كافي أو إضافة تجوال: هل بإمكانك إجراء المكالمات واستخدام الإنترنت؟<br>
+Only if you have sufficient usage balance or a roaming add-on: can you make calls and use the internet?<br><br>
+
+
+فضلًا، قم بتفعيل وضع الطيران ثم إيقافه للتأكد.<br>
+Please enable Airplane Mode and then turn it off to check.<br><br>
+
+فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+Please try the SIM card in another device.<br><br>
+
+فضلًا، زودنا بثلاث عينات حديثة لرسائل لم تصلك (التاريخ، الوقت، الرقم المرسل)<br>
+Please provide three recent samples of messages you did not receive (date, time, and sender number).<br><br><br>
+
+
+Complaint > Network > SMS: SMS issues > Cannot receive SMS<br><br><br>
+
+ــــــــــــــــــــــــــــــ<br><br>
+
+
+</p>`,
+
+ opt7: `<h1>Can't Receive Calls</h1><p>Can't Receive Calls
+
+
+
+Can't Receive Calls<br><br>
+
+
+
+
+فضلا تأكد من انك لم تقم بتفعيل خدمة تحويل المكالمات من خلال الخطوات التالية :<br>
+Please make sure that call forwarding has not been activated using the following steps:<br><br>
+
+فضلا تأكد لي هل انت داخل السعودية ام خارج السعودية؟<br>
+Please confirm whether you are inside Saudi Arabia or outside.<br><br>
+
+فقط في حال كان العميل لديه بيانات و دقائق : فضلا تأكد لي هل تواجهك اي اشكالية بالانترنت و إجراء الاتصال ؟<br>
+Only if the customer has data and minutes: please confirm whether you are experiencing any issues with internet or making calls.<br><br>
+
+* هل تواجه الاشكالية في مكان محدد ام في كل مكان ؟<br>
+* Is the issue occurring in a specific location or everywhere?<br><br>
+
+فضلًا، هل تواجه الإشكالية مع جميع الأرقام أم رقم محدد؟ وهل المشكلة مع جميع المشغّلين أم مشغّل واحد فقط؟<br>
+Please confirm whether the issue occurs with all numbers or a specific number, and whether it happens with all operators or just one.<br><br>
+
+فضلًا تزودني بالخطأ الي يظهر للمتصل وقت محاولة الاتصال بك<br>
+Please provide me with the error that appears to the caller when they try to reach you.<br><br>
+
+فضلًا تجرب الشريحه في جهاز اخر<br>
+Please try the SIM card in another device.<br><br>
+
+
+*ياليت تضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي:وزودنا بصورة شاشة من الاعدادات بعد ضبطها <br>
+لاجهزة الايفون:<br>
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN).<br><br>
+لاجهزة الاندرويد:<br>
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق.<br><br><br>
+
+
+
+*Please change your device's APN settings by following these steps and provide us with screenshot of the setting :<br>
+for ios:<br>
+Settings⚙️ > Cellular > Cellular Data Options > Cellular Data Network > Type Jawwy in the APN field.<br>
+for android<br><br>
+Settings⚙️ > Connections > Mobile Networks > Access Point Names > Tap ""JAWALNet"" > Tap APN and then type Jawwy > OK.<br><br><br>
+
+* لو تكرمت، أحتاج ثلاثة عينات حديثة لأرقام حاولت الاتصال بك (الرقم، التاريخ، الوقت ، المشغل )<br>
+
+* If you don’t mind, I need three recent samples of numbers that tried to call you (number, date, time, operator).<br><br><br>
+
+
+
+
+complaint > network > voice<br><br>
+
+</p>`,
+
+ opt8: `<h1>Esim Qr code issue </h1><p>Esim Qr code not working <br><br><br>
+
+
+
+
+
+فضلا تأكد لي انك مفعل الواي فاي الله يعافيك وقت مسح الباركود<br>
+
+Please make sure that Wi-Fi is enabled when scanning the barcode.<br><br>
+
+فضلا تأكد لي انك مو مفعل الVPN وقت مسح الباركود<br>
+
+Please make sure that VPN is not enabled when scanning the barcode.<br><br>
+
+فضلا قم بإعادة تشغيل الجهاز و التجربة مرة اخرى<br>
+
+Please restart the device and try again.<br><br>
+
+فضلا زودني بلقطة شاشة لرسالة الخطأ الي تظهر لك<br>
+
+Please provide me with a screenshot of the error message that appears.<br><br>
+
+فضلا تأكد لي هل قمت بمسح باركود الشريحة بنجاح على الجهاز أكثر من 3 مرات<br>
+
+Please confirm whether you have successfully scanned the SIM barcode on the device more than 3 times.<br><br>
+
+فضلا تزودني بنوع الجهاز الي تحاول تقوم بمسح الباركود عليه<br>
+
+Please provide me with the device model you are trying to scan the barcode on.<br><br><br>
+
+
+
+
+
+
+Complaint > Provisioning > Number not working > Unable to activate<br><br><br>
+
+</p>`,
+
+ opt9: `<h1>SMS issue </h1><p>SMS issue <br><br>
+
+
+
+Can’t Send SMS/MMS<br><br><br>
+
+
+فضلًا، هل هذه هي المرة الأولى التي تواجه فيها هذه المشكلة أم أنها تكررت سابقًا؟<br>
+Please let me know if this is the first time you are facing this issue or if it has happened before.<br><br>
+
+فضلًا، هل تواجه الإشكالية مع جميع الأرقام أم رقم محدد؟<br>
+Are you experiencing the issue with all numbers or just a specific number?<br><br>
+
+فضلًا، تقوم بالاتصال على 900 هل تسمع الرد الألي ؟<br>
+Please call 900 and let me know if you can hear the automated response.<br><br>
+
+فضلًا، تأكد لي هل توصلك أي رسالة من جوي؟<br>
+Please confirm whether you are receiving any messages from Jawwy.<br><br>
+
+في حال كان جهاز العميل أندرويد: فضلا، هل يمكنك التحقق من إعدادات الرسائل والتأكد من أن رقم مركز الرسائل هو ‎+966505031999‎؟<br>
+If your device is Android: please check the message settings and ensure the message center number is +966505031999.<br><br>
+
+فضلًا زودني بلقطة شاشة من الخطأ الي يظهر لك وقت ما تحاول ترسل الرسالة<br>
+Please provide me with a screenshot of the error that appears when you try to send a message.<br><br>
+
+في حال كان العميل يحاول إرسال رسالة دولية: فضلا تأكد من انك تقوم باستخدام مفتاح الدولة الصحيح<br>
+If you are trying to send an international message: please make sure you are using the correct country code.<br><br>
+
+في حال كان العميل يحاول إرسال رسالة وقت التجوال: تأكد من أنه يقوم بإدخال رمز الدولة بشكل صحيح حتى لو كان الرقم سعودياً<br>
+If you are sending a message while roaming: make sure the country code is entered correctly even if the number is Saudi.<br><br>
+
+فضلًا تأكد لي هل بإمكانك استخدام الإنترنت والاتصال؟<br>
+Please confirm whether you are able to use the internet and make calls.<br><br>
+
+فضلًا، قم بتفعيل وضع الطيران ثم إيقافه للتأكد.<br>
+Please enable Airplane Mode and then turn it off again.<br><br>
+
+فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+Please try the SIM card in another device.<br><br>
+
+فضلًا، زودنا بثلاث عينات حديثة لرسائل قمت بإرسالها ولم تنجح (التاريخ، الوقت، الرقم الذي حاولت إرسال الرسالة له).<br>
+Please provide three recent samples of messages you attempted to send that failed (date, time, and the number you tried to send to).<br><br><br>
+
+
+
+complaint > network > SMS: SMS issue <br><br>
+ــــــــــــــــــــــــــــــ<br><br><br>
+
+Can’t Receive SMS/MMS<br><br><br>
+
+
+
+فضلًا، هل هذه هي المرة الأولى التي تواجه فيها هذه المشكلة أم أنها تكررت سابقًا؟<br>
+Please let me know if this is the first time you are facing this issue or if it has occurred before.<br><br>
+
+فضلًا، هل تواجه الإشكالية مع جميع الأرقام أم رقم محدد؟<br>
+Are you experiencing the issue with all numbers or just a specific number?<br><br>
+
+فضلا، تقوم بالاتصال على 900 هل تسمع الرد الألي ؟<br>
+Please call 900 and let me know if you can hear the automated response.<br><br>
+
+فضلًا، تأكد لي هل توصلك أي رسالة من جوي؟<br>
+Please confirm whether you are receiving any messages from Jawwy.<br><br>
+
+في حال كان جهاز العميل أندرويد: فضلا، هل يمكنك التحقق من إعدادات الرسائل والتأكد من أن رقم مركز الرسائل هو ‎+966505031999‎؟<br><br>
+If your device is Android: please check the messaging settings and ensure the message center number is +966505031999.<br><br>
+
+فضلا زودني بلقطة شاشة من الخطأ الذي يظهر للشخص وقت ما يحاول يرسل لك الرسالة<br>
+Please provide me with a screenshot of the error that appears to the sender when they try to send you a message.<br><br>
+
+في حال كان العميل يريد استقبال رسالة دولية: فضلا تأكد من أن المرسل يستخدم مفتاح الدولة الصحيح<br>
+If you are trying to receive an international message: please make sure the sender is using the correct country code.<br><br>
+
+في حال كان العميل يريد استقبال رسالة وقت التجوال: تأكد من أن المرسل يدخل رمز الدولة بشكل صحيح حتى لو كان الرقم سعودياً<br>
+If you are trying to receive a message while roaming: make sure the sender enters the correct country code even if the number is Saudi.<br><br>
+
+فقط في حال العميل لديه باقة محلية أو إضافة تجوال أو رصيد استخدام: فضلا تأكد لي هل بإمكانك استخدام الإنترنت والاتصال؟<br>
+Only if the customer has a local package, roaming add-on, or usage balance: please confirm whether you can use the internet and make calls.<br><br>
+
+* من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى:<br>
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة<br>
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين إعدادات الشبكة<br><br>
+
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة<br><br>
+
+
+* Please try to reset your device's network settings ⚙️ and try again:<br>
+For iOS devices: Settings > General > Reset > Reset Network Settings<br>
+For iOS devices (New OS version): Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings<br><br>
+
+For Android devices: Settings > General Management > Reset > Reset network settings.<br><br>
+
+
+فضلًا، قم بتفعيل وضع الطيران ثم إيقافه للتأكد.<br>
+Please enable Airplane Mode and then turn it off again.<br><br>
+
+فضلًا، قم بتجربة الشريحة في جهاز آخر.<br>
+Please try the SIM card in another device.<br><br>
+
+فضلًا، زودنا بثلاث عينات حديثة لرسائل لم تصلك (التاريخ، الوقت، الرقم المرسل)<br>
+Please provide three recent samples of messages you did not receive (date, time, and sender number).<br><br><br>
+
+
+complaint > network> SMS: SMS issue > can not receive SMS <br><br>
+</p>`,
+
+ opt10: `<h1>VAS</h1><p>VAS<br>
+
+Voicemail doesn't work OR I can't listen to my voice messages.<br><br>
+
+
+
+* فضلاً وضح لي هل كانت الخدمة تعمل بشكل جيد في السابق<br>
+
+* Please clarify whether the service was working properly before.<br><br>
+
+* ياليت تتأكد من انك تستخدم الكود الصحيح لتفعيل الخدمة<br>
+
+* Please make sure you are using the correct code to activate the service.<br><br>
+
+* هل تستقبل رسائل التنبيهات النصية الخاصة بالبريد الصوتي؟<br>
+
+* Are you receiving voicemail notification SMS messages?<br><br>
+
+* فضلاً ياليت تقوم بالغاء الخدمة واعادة تفعيلها وزودنا بصورة شاشة من الخطأ الظاهر لك<br>
+
+* Please cancel the service and reactivate it, then provide a screenshot of any error that appears.<br><br>
+
+* ياليت تتبع الخطوات التالية حسب نوع جهازك ومن ثم حاول مجدداً<br>
+
+* Please follow the steps below based on your device type, then try again.<br><br>
+
+    أجهزة ابل: الإعدادات < الخصوصية والأمان < نمط المنع < الغاء<br>
+    Apple devices: Settings < Privacy & Security < Lockdown Mode < Turn Off<br><br>
+
+    أجهزة اندرويد: الإعدادات < الاتصالات < شبكات الاتصال < نمط الشبكة < يتم تحويل الخدمة الى 2G، وبعد نجاح تفعيل أو إلغاء الخدمة يمكنك إعادة الشبكة إلى وضع 4G أو 5G حسب رغبتك.<br>
+    Android devices: Settings < Connections < Mobile Networks < Network Mode < switch the service to 2G. After successfully activating or deactivating the service, you may switch back to 4G or 5G as desired.<br><br>
+
+* ياليت تزودنا بثلاث عينات تاريخ ووقت تفعيل/إلغاء تفعيل الخدمة أو تاريخ ووقت الاتصال بالرقم 955 للاستماع إلى الرسائل الصوتية<br>
+
+* Please provide three samples showing the date and time of activating/deactivating the service, or the date and time of calling 955 to listen to voicemail.<br><br>
+
+* فضلاً استخدام الكود التالي لإعادة تعيين جميع الخدمات ##002# وإعادة تنشيط الخدمة مرة أخرى<br>
+
+* Please use the following code to reset all services ##002# and then reactivate the service again.<br><br>
+
+* فضلاً زودني بنوع الجهاز المستخدم<br>
+
+* Please provide me with the device type you are using.<br><br>
+
+
+complaint > value add services > voice mail < cannot retrieve voicemail messages <br><br>
+
+
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br>
+
+
+Call Waiting<br><br>
+
+* فضلاً وضح لي هل كانت الخدمة تعمل بشكل جيد في السابق<br>
+  Kindly clarify whether the service was working properly in the past.<br><br>
+
+* ياليت تتأكد من انك تستخدم الكود الصحيح لتفعيل الخدمة<br>
+  Please make sure you are using the correct code to activate the service.<br><br>
+
+* فضلاً زودني بصورة من الخطأ الظاهر لك عند تفعيل الخدمة في حال ظهور خطأ<br>
+  Kindly provide a screenshot of the error displayed when activating the service, if any.<br><br>
+
+* فضلا ياليت تجرب الشريحة في جهاز اخر وتحاول تفعيل الخدمة عليه<br>
+  Please try the SIM in another device and attempt to activate the service again.<br><br>
+
+* ياليت تتبع الخطوات التالية حسب نوع جهازك ومن ثم حاول مجدداً<br>
+أجهزة ابل: الإعدادات < الخصوصية والأمان < نمط المنع < الغاء<br><br>
+أجهزة اندرويد: الإعدادات < الاتصالات < شبكات الاتصال < نمط الشبكة < يتم تحويل الخدمة الى 2G، وبعد نجاح تفعيل أو إلغاء الخدمة يمكنك إعادة الشبكة إلى وضع 4G أو 5G حسب رغبتك.<br><br>
+
+  Please follow the steps below based on your device type and try again.<br><br>
+Apple devices: Settings < Privacy & Security < Lockdown Mode < Off<br><br>
+Android devices: Settings < Connections < Mobile Networks < Network Mode < switch to 2G, and after activation/deactivation you can return the network to 4G or 5G as you prefer.<br><br>
+
+* فضلاً زودني بثلاث عينات لمحاولتك تفعيل الخدمة او الغاء تفعيلها<br>
+  Kindly provide three samples of your attempts to activate or deactivate the service.<br><br>
+
+* فضلاً استخدام الكود التالي لإعادة تعيين جميع الخدمات ##002# وإعادة تنشيط الخدمة مرة أخرى<br>
+  Please use the following code to reset all services: ##002#, then reactivate the service again.<br><br>
+
+* فضلاً زودني بنوع الجهاز المستخدم<br>
+  Kindly provide the device model you are using.<br><br>
+
+
+
+
+complaint > value add services > mawjood Extra > service not working with jawwy<br><br>
+
+
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br>
+
+Call Me<br><br>
+
+
+
+* فضلاً وضح لي هل كانت الخدمة تعمل بشكل جيد في السابق مع العلم ان الحد اليومي هو 10 رسائل <br>
+  Kindly clarify whether the service was working properly in the past the daily limit of 10 SMS per day..<br><br>
+
+* ياليت تتأكد من انك تستخدم الكود الصحيح لتفعيل الخدمة<br>
+  Please make sure you are using the correct code to activate the service.<br><br>
+
+* فضلاً زودني بصورة من الخطأ الظاهر لك عند تفعيل الخدمة في حال ظهور خطأ<br>
+  Kindly provide a screenshot of the error displayed when activating the service, if any.<br><br>
+
+
+
+* ياليت تتبع الخطوات التالية حسب نوع جهازك ومن ثم حاول مجدداً<br>
+أجهزة ابل: الإعدادات < الخصوصية والأمان < نمط المنع < الغاء<br><br>
+أجهزة اندرويد: الإعدادات < الاتصالات < شبكات الاتصال < نمط الشبكة < يتم تحويل الخدمة الى 2G، وبعد نجاح تفعيل أو إلغاء الخدمة يمكنك إعادة الشبكة إلى وضع 4G أو 5G حسب رغبتك.<br><br>
+
+  Please follow the steps below based on your device type and try again.<br><br>
+Apple devices: Settings < Privacy & Security < Lockdown Mode < Off<br><br>
+Android devices: Settings < Connections < Mobile Networks < Network Mode < switch to 2G, and after activation/deactivation you can return the network to 4G or 5G as you prefer.<br><br>
+
+
+*ياليت تزودنا بثلاع عينات من الارقام المراد ارسال اليها رسالة كول مي ووقت وتاريخ المحاولة<br>
+Please provide three samples of the numbers you attempted to send the “Call Me” message to, along with the date and time of each attempt.<br><br>
+
+
+* فضلاً استخدام الكود التالي لإعادة تعيين جميع الخدمات ##002# وإعادة تنشيط الخدمة مرة أخرى<br>
+  Please use the following code to reset all services: ##002#, then reactivate the service again.<br><br>
+
+* فضلاً زودني بنوع الجهاز المستخدم<br>
+  Kindly provide the device model you are using.<br><br>
+
+
+complaint > value add services > mawjood Extra > service not working with jawwy<br><br>
+
+
+
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br>
+
+
+Mawjood Issue<br><br>
+
+
+* ياليت تتأكد من انك تستخدم الكود الصحيح لتفعيل الخدمة وتأكد لي هل تتواجد داخل المملكة العربية السعودية <br>
+  Please make sure you are using the correct code to activate the service , are you inside or out side the kingdome.<br><br>
+
+* فضلاً ياليت تقوم بالغاء الخدمة واعادة تفعيلها <br>
+
+* Please cancel the service and reactivate it.<br><br>
+
+
+* ياليت تتبع الخطوات التالية حسب نوع جهازك ومن ثم حاول مجدداً<br>
+أجهزة ابل: الإعدادات < الخصوصية والأمان < نمط المنع < الغاء<br><br>
+أجهزة اندرويد: الإعدادات < الاتصالات < شبكات الاتصال < نمط الشبكة < يتم تحويل الخدمة الى 2G، وبعد نجاح تفعيل أو إلغاء الخدمة يمكنك إعادة الشبكة إلى وضع 4G أو 5G حسب رغبتك.<br><br>
+
+  Please follow the steps below based on your device type and try again.<br>
+Apple devices: Settings < Privacy & Security < Lockdown Mode < Off<br><br>
+Android devices: Settings < Connections < Mobile Networks < Network Mode < switch to 2G, and after activation/deactivation you can return the network to 4G or 5G as you prefer.<br><br>
+
+
+* فضلا زودني بصورة من الخطأ الظاهر لك عند محاولة التفعيل <br>
+Please provide me with a screenshot of the error that appears when you attempt to activate the service.<br><br>
+
+* فضلاً استخدام الكود التالي لإعادة تعيين جميع الخدمات ##002# وإعادة تنشيط الخدمة مرة أخرى<br>
+  Please use the following code to reset all services: ##002#, then reactivate the service again.<br><br>
+
+* فضلاً زودني بنوع الجهاز المستخدم<br>
+  Kindly provide the device model you are using.<br><br>
+
+
+complaint > value add services > vas short codes >cannot enable / disable Mawjood<br><br>
+
+
+
+</p>`,
+
+ opt11: `<h1>can’t make international calls.<br><br></h1><p>can’t make international calls.<br><br>
+
+
+
+
+نتحقق من حالة الرقم في النظام + إذا كان عليه بار في الشوقر أو لا<br>
+Check ItsOn for number status and SugarCRM if the number is barred.<br><br>
+
+تأكد من أن العميل عنده رصيد (أو رصيد استخدام إذا كان جوّي 1 ) أو عنده باقة للدقائق الدولية ، إذا ما عنده باقة دقايق دولية ننصحه بإعادة شحن الرصيد أو رصيد الاستخدام<br>
+Check available PayGo balance OR call rates OR International Minutes Plan; if the balance is not enough – advise to buy.<br><br>
+
+شيّك على الشوقر إذا مرفوع له كيس لنفس المشكلة خلال الـ 24 ساعة الماضية<br>
+Check SugarCRM if there were any related or escalated cases, and confirm it is within 24 hrs.<br><br>
+
+فضلا تزودني بالخطأ اللي يظهر لك أثناء إجراء المكالمة الدولية<br>
+Check the error message.<br><br>
+
+هل أول مرة تصير معك هذي المشكلة ؟<br>
+Check if it is the first time or happened before.<br><br>
+
+ممكن تأكد لي إذا المشكلة تواجهك عند الإتصال على رقم معيّن ؟ أو جميع الأرقام ؟<br>
+Check if it is with all numbers or a specific number.<br><br>
+
+فضلا تأكد من إدخال مفتاح الإتصال الدولي بشكل صحيح .<br>
+Confirm the country code used.<br><br>
+
+( إذا كان في جوال العميل شريحتين ) من فضلك تأكد من إعدادات جوالك أن إجراء المكالمات يكون من خلال شريحة جوّي<br>
+Make sure if using a Dual SIM device, to check the device settings to use Jawwy SIM for making calls.<br><br>
+
+ (إذا شريحة عادية ، لا تسأل العميل عن نوع الشريحة) فضلا تقوم بتجربة الشريحة في جوّال آخر<br>
+Try another device.<br><br>
+
+
+ولا يهمّك يا غالي برفع طلب للفريق المختص بخصوص الإشكالية اللي تواجهك ،  زودني برقم للتواصل معك لو تكرمت  <br>
+I will submit a request to the concerned team regarding the issue you are facing. Please provide me with a contact number.<br><br>
+
+
+إجمع المتطلبات وارفع الكيس لـ L2<br>
+Capture all info and contact number – Escalate.<br><br>
+
+</p>`,
+       opt12: `<h1>App Settings</h1><p>App Settings<br><br><br>
+هل هذه أول مرة تواجه فيها المشكلة أم تكررت معك مسبقًا؟<br>
+Is this the first time you are facing this issue, or has it happened before?<br><br>
+فضلاً وضّح لي الخدمة المطلوبة من خلال التطبيق: هل ترغب في الشحن أو شراء باقة؟<br>
+Please clarify which service you need through the app: do you want to recharge or purchase a package?<br><br>
+فضلاً زوّدني بلقطة شاشة للخطأ الظاهر لديك.<br>
+Please provide a screenshot of the error appearing on your device.<br><br>
+فضلاً زوّدني بلقطة شاشة لحالة الشبكة (الأبراج) في جهازك.<br>
+Please provide a screenshot of your device’s signal/network status.<br><br>
+فضلاً زوّدني بنوع جهازك.<br>
+Please provide your device type.<br><br>
+في حال كان جهاز العميل بنظام أندرويد:<br>
+If the customer’s device is Android:<br><br>
+فضلاً اتّبع الخطوات التالية لتغيير المتصفح الافتراضي:<br>
+الإعدادات > إدارة التطبيقات > التطبيقات الافتراضية > المتصفح > اختر متصفحًا آخر<br>
+Please follow the steps below to change the default browser:<br>
+Settings > App Management > Default Apps > Browser > Choose another browser<br><br>
+في حال كان لدى العميل شريحتان في الجهاز:<br>
+If the customer has two SIM cards in the device:<br><br>
+فضلاً تأكّد أن شريحة جوي في المنفذ الأول، وأن بيانات جوي مفعّلة.<br>
+Please ensure that the Jawwy SIM is in slot 1 and that Jawwy data is enabled.<br><br>
+فضلاً تأكّد هل البيانات تعمل لديك في التطبيقات والمواقع الأخرى؟<br>
+Please confirm if your data works on other apps and websites.<br><br>
+فضلاً تأكّد أنك محدّث جهازك لآخر إصدار، وزوّدنا بصورة للشاشة إن أمكن.<br>
+Please ensure your device is updated to the latest version, and provide a screenshot if possible.<br><br>
+فضلاً قم بحذف تطبيق جوي وإعادة تحميله مرة أخرى، وأخبرنا هل ما زالت المشكلة مستمرة.<br>
+Please delete the Jawwy app and reinstall it, then let us know if the issue persists.<br><br>
+في حال كنت تستخدم بيانات جوي: فضلاً تأكّد هل بإمكانك استخدام البيانات بشكل طبيعي؟<br>
+If you are using Jawwy data: please confirm whether you can use data normally.<br><br>
+فضلاً أخبرنا منذ متى بدأت المشكلة بالظهور.<br>
+Please tell us when the issue first started appearing.<br><br>
+وفضلاً جرّب الشريحة في جهاز آخر وأخبرنا بالنتيجة.<br>
+And please try the SIM card in another device and inform us of the result.<br><br>
+
+
+</p>`,
+
+
+
+opt13: `<h1>Unstable connection</h1><p>Unstable connection -Data stops- <br><br><br>
+
+
+*من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى:<br>
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة<br>
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين إعدادات الشبكة<br><br>
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة<br><br>
+*Please try to reset your device's network settings ⚙️ and try again:<br>
+For iOS devices: Settings > General > Reset > Reset Network Settings<br>
+For iOS devices (New OS version): Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings<br><br>
+For Android devices: Settings > General Management > Reset > Reset network settings.<br><br>
+*ياليت تضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي:وزودنا بصورة شاشة من الاعدادات بعد ضبطها <br>
+لاجهزة الايفون:<br>
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN).<br><br>لاجهزة الاندرويد:<br>
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق.<br><br><br>
+*Please change your device's APN settings by following these steps and provide us with screenshot of the setting :<br>
+for ios:<br>
+Settings⚙️ > Cellular > Cellular Data Options > Cellular Data Network > Type Jawwy in the APN field.<br>
+for android<br><br>
+Settings⚙️ > Connections > Mobile Networks > Access Point Names > Tap ""JAWALNet"" > Tap APN and then type Jawwy > OK.<br><br><br>
+* ياليت تقوم بتفعيل وضع الطيران ومن ثم ايقافه<br>
+  Please enable Airplane Mode and then disable it.<br><br>
+* من فضلك قم بتجربة الشريحة في جهاز اخر<br>
+  Please try the SIM card in another device.<br><br>
+* في حال كانت الاشكالية تؤثر ايضاً على الاتصالات ياليت تزودني بثلاث عينات لمكالمات فاشلة (الوقت والتاريخ ورقم الجوال)<br>
+  If the issue also affects calls, please provide three samples of failed calls (time, date, and phone number).<br><br>
+* هل تتكرر الاشكالية في اوقات معينة مثل (في الصباح او وقت الظهيرة)<br>
+  Does the issue occur at specific times, such as in the morning or around noon?<br><br><br>
+
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<br><br><br>
+Unstable connection -Data Slows-<br><br><br>
+
+
+
+
+*من فضلك قم باعادة ضبط إعدادات الشبكة ⚙️ في جهازك حسب نوع الجوال و تجرب مرة أخرى:<br>
+لأجهزة الآيفون: الإعدادات > عام > إعادة تعيين > إعادة تعيين إعدادات الشبكة<br>
+لأجهزة الآيفون بتحديث الإصدار الجديد: الإعدادات > عام > نقل أو إعادة تعيين iPhone > إعادة التعيين < إعادة تعيين إعدادات الشبكة<br><br>
+لأجهزة الأندرويد: الضبط > الإدارة العامة > إعادة الضبط > إعادة ضبط الشبكة<br><br>
+*Please try to reset your device's network settings ⚙️ and try again:<br>
+For iOS devices: Settings > General > Reset > Reset Network Settings<br>
+For iOS devices (New OS version): Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings<br><br>
+For Android devices: Settings > General Management > Reset > Reset network settings.<br><br>
+*ياليت تضبط إعدادات أسماء نقاط الوصول (APN) في جوالك كالتالي:وزودنا بصورة شاشة من الاعدادات بعد ضبطها <br>
+لاجهزة الايفون:<br>
+الإعدادات⚙️ > خلوي > البيانات الخلوية > شبكة البيانات الخلوية > أكتب Jawwy في خانة اسم نقطة الوصول الـ (APN).<br><br>لاجهزة الاندرويد:<br>
+الإعدادات⚙️ > الاتصالات > شبكات الهواتف المحمولة > أسماء نقاط الوصول > اضغط “JAWALNet” > إضغط APN و أكتب Jawwy > موافق.<br><br><br>
+*Please change your device's APN settings by following these steps and provide us with screenshot of the setting :<br>
+for ios:<br>
+Settings⚙️ > Cellular > Cellular Data Options > Cellular Data Network > Type Jawwy in the APN field.<br>
+for android<br><br>
+Settings⚙️ > Connections > Mobile Networks > Access Point Names > Tap ""JAWALNet"" > Tap APN and then type Jawwy > OK.<br><br><br>
+* ياليت تقوم بتفعيل وضع الطيران ومن ثم ايقافه<br>
+  Please enable Airplane Mode and then disable it.<br><br>
+* من فضلك قم بتجربة الشريحة في جهاز اخر<br>
+  Please try the SIM card in another device.<br><br>
+* في حال كانت الاشكالية تؤثر ايضاً على الاتصالات ياليت تزودني بثلاث عينات لمكالمات فاشلة (الوقت والتاريخ ورقم الجوال)<br>
+  If the issue also affects calls, please provide three samples of failed calls (time, date, and phone number).<br><br>
+* فضلاً زودني بصورة شاشة من اختبار السرعة من خلال الموقع التالي (https://www.speedtest.net/)<br>
+  Please provide a screenshot of the speed test from the following website: (https://www.speedtest.net/)<br><br>
+* هل تتكرر الاشكالية في اوقات معينة مثل (في الصباح او وقت الظهيرة)<br>
+  Does the issue occur at specific times, such as in the morning or around noon?<br><br><br>
+
+
+</p>`,
+
+
+    };
+
+    const selector = document.getElementById('selector');
+    const display = document.getElementById('displayArea');
+    const contentArea = document.getElementById('contentArea');
+
+    selector.addEventListener('change', e => {
+      const v = e.target.value;
+      display.innerHTML = texts[v] || `<h1>اختر خياراً من القائمة أعلى اليمين</h1>
+                                       <p>ــــــــــــــــــ</p>`;
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
